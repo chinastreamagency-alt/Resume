@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>吕品鑫 - Medical Director</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary: #1a2744;
+            --primary-light: #2a3f6a;
+            --accent: #b8926a;
+            --accent-light: #d4b896;
+            --accent-soft: rgba(184,146,106,0.08);
+            --text-dark: #2c2c2c;
+            --text-medium: #444444;
+            --text-light: #888888;
+            --bg-cream: #faf9f7;
+            --border-light: #e8e4df;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', 'Noto Serif SC', -apple-system, 'Microsoft YaHei', sans-serif;
+            color: var(--text-dark);
+            background: #e8e8e8;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .resume-container {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 20px auto;
+            background: var(--white);
+            box-shadow: 0 10px 60px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media print {
+            body { background: white; margin: 0; }
+            .resume-container {
+                margin: 0;
+                box-shadow: none;
+                width: 100%;
+            }
+            .page-break { page-break-before: always; }
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #2a3f6a 60%, #344e7a 100%);
+            color: var(--white);
+            padding: 44px 56px 38px;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light), var(--accent));
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(184,146,106,0.08), transparent 70%);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-left {
+            flex: 1;
+        }
+
+        .name-cn {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 38px;
+            font-weight: 700;
+            letter-spacing: 14px;
+            margin-bottom: 4px;
+        }
+
+        .name-en {
+            font-family: 'Playfair Display', serif;
+            font-size: 15px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .title-line {
+            font-size: 17px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: rgba(255,255,255,0.88);
+            border-left: 3px solid var(--accent);
+            padding-left: 16px;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 13px;
+            line-height: 2.1;
+            color: rgba(255,255,255,0.82);
+            min-width: 240px;
+            padding-top: 6px;
+        }
+
+        .header-right .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .header-right .contact-icon {
+            color: var(--accent-light);
+            font-size: 12px;
+            width: 16px;
+            text-align: center;
+        }
+
+        /* ===== MAIN BODY ===== */
+        .body {
+            display: flex;
+            min-height: calc(297mm - 150px);
+        }
+
+        .sidebar {
+            width: 230px;
+            background: var(--bg-cream);
+            padding: 32px 26px;
+            border-right: 1px solid var(--border-light);
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 32px 40px;
+        }
+
+        /* ===== SECTION TITLES ===== */
+        .section-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 4px;
+            margin-bottom: 16px;
+            padding-bottom: 9px;
+            border-bottom: 2px solid var(--accent);
+            position: relative;
+        }
+
+        .section-title-sm {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+            padding-bottom: 7px;
+            border-bottom: 1.5px solid var(--accent);
+        }
+
+        .section {
+            margin-bottom: 22px;
+        }
+
+        .sidebar .section {
+            margin-bottom: 22px;
+        }
+
+        /* ===== SIDEBAR CONTENT ===== */
+        .skill-category {
+            margin-bottom: 12px;
+        }
+
+        .skill-category-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 5px;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: var(--white);
+            border: 1px solid var(--border-light);
+            color: var(--text-medium);
+            font-size: 10.5px;
+            padding: 2px 8px;
+            margin: 2px 2px 2px 0;
+            border-radius: 2px;
+        }
+
+        .lang-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12.5px;
+            color: var(--text-medium);
+            margin-bottom: 6px;
+        }
+
+        .lang-level {
+            font-size: 11px;
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .cert-item {
+            font-size: 11.5px;
+            color: var(--text-medium);
+            margin-bottom: 6px;
+            padding-left: 14px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .cert-item::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 7px;
+            top: 3px;
+        }
+
+        .info-item {
+            font-size: 12px;
+            color: var(--text-medium);
+            margin-bottom: 5px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .info-label {
+            color: var(--text-light);
+            min-width: 48px;
+        }
+
+        /* ===== EXPERIENCE BLOCKS ===== */
+        .exp-block {
+            margin-bottom: 18px;
+            position: relative;
+            padding-left: 18px;
+        }
+
+        .exp-block::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            bottom: -18px;
+            width: 1.5px;
+            background: linear-gradient(to bottom, var(--accent), var(--border-light));
+        }
+
+        .exp-block:last-child::before {
+            bottom: 0;
+        }
+
+        .exp-block::after {
+            content: '';
+            position: absolute;
+            left: -3.5px;
+            top: 7px;
+            width: 9px;
+            height: 9px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 2px solid var(--white);
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .exp-company {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .exp-date {
+            font-size: 11.5px;
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .exp-role {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--text-medium);
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .exp-desc {
+            font-size: 12px;
+            color: var(--text-medium);
+            line-height: 1.65;
+        }
+
+        .exp-desc li {
+            margin-bottom: 3px;
+            list-style: none;
+            position: relative;
+            padding-left: 14px;
+        }
+
+        .exp-desc li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* ===== EDUCATION ===== */
+        .edu-block {
+            margin-bottom: 12px;
+            padding-left: 18px;
+            position: relative;
+        }
+
+        .edu-block::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 7px;
+            width: 8px;
+            height: 8px;
+            background: var(--white);
+            border: 2.5px solid var(--accent);
+            border-radius: 50%;
+        }
+
+        .edu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .edu-school {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .edu-date {
+            font-size: 11px;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .edu-detail {
+            font-size: 12px;
+            color: var(--text-medium);
+        }
+
+        /* ===== PROFILE SUMMARY ===== */
+        .profile-text {
+            font-size: 12.5px;
+            color: var(--text-medium);
+            line-height: 1.85;
+            text-align: justify;
+            border-left: 3px solid var(--accent);
+            padding-left: 16px;
+            background: linear-gradient(90deg, var(--accent-soft), transparent);
+            padding-top: 6px;
+            padding-bottom: 6px;
+        }
+
+        /* ===== CLINICAL PROJECTS TABLE ===== */
+        .project-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11.5px;
+            margin-top: 4px;
+        }
+
+        .project-table th {
+            background: var(--primary);
+            color: var(--white);
+            font-weight: 600;
+            padding: 6px 10px;
+            text-align: left;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .project-table td {
+            padding: 6px 10px;
+            border-bottom: 1px solid var(--border-light);
+            color: var(--text-medium);
+            vertical-align: top;
+            line-height: 1.5;
+        }
+
+        .project-table tr:nth-child(even) {
+            background: var(--accent-soft);
+        }
+
+        .project-table .proj-tag {
+            display: inline-block;
+            font-size: 10px;
+            padding: 1px 6px;
+            border-radius: 2px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .tag-post {
+            background: #e8f0e8;
+            color: #3a6b3a;
+        }
+
+        .tag-pre {
+            background: #e8eaf0;
+            color: #3a4a6b;
+        }
+
+        /* ===== PUBLICATIONS ===== */
+        .pub-item {
+            font-size: 11.5px;
+            color: var(--text-medium);
+            margin-bottom: 6px;
+            padding-left: 14px;
+            position: relative;
+            line-height: 1.55;
+        }
+
+        .pub-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 7px;
+            width: 6px;
+            height: 6px;
+            border: 1.5px solid var(--accent);
+            border-radius: 1px;
+        }
+
+        .pub-journal {
+            font-style: italic;
+            color: var(--text-light);
+        }
+
+        /* ===== KEY HIGHLIGHTS ===== */
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 4px;
+        }
+
+        .highlight-card {
+            background: var(--accent-soft);
+            border-left: 3px solid var(--accent);
+            padding: 10px 14px;
+        }
+
+        .highlight-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .highlight-label {
+            font-size: 11px;
+            color: var(--text-light);
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            padding: 14px;
+            font-size: 10px;
+            color: var(--text-light);
+            letter-spacing: 2px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        /* ===== PAGE 2 ===== */
+        .page2 {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 20px auto;
+            background: var(--white);
+            box-shadow: 0 10px 60px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media print {
+            .page2 {
+                margin: 0;
+                box-shadow: none;
+                width: 100%;
+                page-break-before: always;
+            }
+        }
+
+        .page2-header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 20px 56px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .page2-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light), var(--accent));
+        }
+
+        .page2-name {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 6px;
+        }
+
+        .page2-label {
+            font-size: 12px;
+            color: var(--accent-light);
+            letter-spacing: 2px;
+        }
+
+        .page2-body {
+            padding: 36px 56px;
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+
+        <!-- ===== HEADER ===== -->
+        <div class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="name-cn">吕 品 鑫</div>
+                    <div class="name-en">Lü Pinxin, M.D. / Ph.D.</div>
+                    <div class="title-line">Medical Director · 自身免疫 / 血液肿瘤</div>
+                </div>
+                <div class="header-right">
+                    <div class="contact-item">
+                        <span>+86 180-0441-8850</span>
+                        <span class="contact-icon">✆</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>1024628536@qq.com</span>
+                        <span class="contact-icon">✉</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>上海 · 可全国出差</span>
+                        <span class="contact-icon">◈</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="body">
+            <!-- ===== SIDEBAR ===== -->
+            <div class="sidebar">
+
+                <div class="section">
+                    <div class="section-title-sm">个人信息</div>
+                    <div class="info-item"><span class="info-label">性别</span><span>男</span></div>
+                    <div class="info-item"><span class="info-label">出生</span><span>1992年</span></div>
+                    <div class="info-item"><span class="info-label">学历</span><span>博士（外科学）</span></div>
+                    <div class="info-item"><span class="info-label">现居</span><span>上海</span></div>
+                </div>
+
+                <div class="section">
+                    <div class="section-title-sm">核心优势</div>
+                    <div class="highlight-card" style="margin-bottom:8px;">
+                        <div class="highlight-number">10+</div>
+                        <div class="highlight-label">年医学临床经验</div>
+                    </div>
+                    <div class="highlight-card" style="margin-bottom:8px;">
+                        <div class="highlight-number">7+</div>
+                        <div class="highlight-label">项临床研究/试验经验</div>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-number">M.D./Ph.D.</div>
+                        <div class="highlight-label">医学博士双重背景</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-title-sm">治疗领域</div>
+                    <div class="skill-category">
+                        <span class="skill-tag">自身免疫</span>
+                        <span class="skill-tag">血液肿瘤</span>
+                        <span class="skill-tag">风湿免疫</span>
+                        <span class="skill-tag">肿瘤免疫治疗</span>
+                        <span class="skill-tag">消化免疫</span>
+                        <span class="skill-tag">心血管</span>
+                        <span class="skill-tag">神经外科</span>
+                        <span class="skill-tag">普通外科</span>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-title-sm">专业技能</div>
+                    <div class="skill-category">
+                        <div class="skill-category-title">医学事务</div>
+                        <span class="skill-tag">临床试验设计</span>
+                        <span class="skill-tag">III期临床管理</span>
+                        <span class="skill-tag">IIT研究</span>
+                        <span class="skill-tag">RWE/真实世界研究</span>
+                        <span class="skill-tag">KOL管理</span>
+                        <span class="skill-tag">医学策略</span>
+                    </div>
+                    <div class="skill-category" style="margin-top:8px;">
+                        <div class="skill-category-title">合规 & 标准</div>
+                        <span class="skill-tag">GCP/ICH</span>
+                        <span class="skill-tag">跨部门协作</span>
+                        <span class="skill-tag">学术交流</span>
+                        <span class="skill-tag">文献分析</span>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-title-sm">语言能力</div>
+                    <div class="lang-item">
+                        <span>普通话</span>
+                        <span class="lang-level">母语</span>
+                    </div>
+                    <div class="lang-item">
+                        <span>英语</span>
+                        <span class="lang-level">CET-6 · 流利</span>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-title-sm">资质证书</div>
+                    <div class="cert-item">普通外科中级资格证书</div>
+                    <div class="cert-item">GCP临床试验质量管理规范培训证</div>
+                    <div class="cert-item">执业医师证书</div>
+                    <div class="cert-item">医师资格证书</div>
+                    <div class="cert-item">英语六级证书（CET-6）</div>
+                    <div class="cert-item">外科住院医师规范化培训合格证书</div>
+                </div>
+
+            </div>
+
+            <!-- ===== MAIN CONTENT ===== -->
+            <div class="main-content">
+
+                <!-- PROFILE -->
+                <div class="section">
+                    <div class="section-title">职业概述</div>
+                    <div class="profile-text">
+                        医学博士（M.D./Ph.D.），吉林大学外科学博士，具备10余年临床医学与医学事务复合型经验。拥有扎实的临床一线诊疗背景（普通外科主治医师）与资深医药企业医学事务管理经验的双重优势。深度参与多项上市前III期关键临床试验及上市后真实世界研究（RWE），涵盖自身免疫、肿瘤免疫治疗、消化、心血管等多个治疗领域。现以临床试验主治医生身份持续参与前沿临床研究，同时开展博士后科研工作。致力于推动创新疗法从实验室到患者的高效转化，具备出色的跨部门协作能力与医学战略思维。
+                    </div>
+                </div>
+
+                <!-- EXPERIENCE -->
+                <div class="section">
+                    <div class="section-title">职业经历</div>
+
+                    <div class="exp-block">
+                        <div class="exp-header">
+                            <span class="exp-company">吉林大学</span>
+                            <span class="exp-date">2025.09 — 至今</span>
+                        </div>
+                        <div class="exp-role">博士后研究员（兼职型）</div>
+                        <ul class="exp-desc">
+                            <li>开展肿瘤免疫治疗方向博士后研究，聚焦自身免疫与肿瘤免疫交叉领域前沿课题</li>
+                            <li>深入探索免疫检查点调控机制，为创新免疫疗法提供理论依据与转化研究基础</li>
+                            <li>与多学科团队协作推进研究项目，强化从基础科研到临床应用的转化能力</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-block">
+                        <div class="exp-header">
+                            <span class="exp-company">吉林大学第一医院（三甲）</span>
+                            <span class="exp-date">2025.09 — 至今</span>
+                        </div>
+                        <div class="exp-role">临床试验主治医生</div>
+                        <ul class="exp-desc">
+                            <li>负责机构内多项新药临床试验的临床执行与受试者管理，确保试验按GCP规范高质量推进</li>
+                            <li>参与临床试验方案审核、伦理委员会沟通、安全性评估及不良事件上报</li>
+                            <li>协调研究团队与申办方的多方沟通，推动临床试验关键节点按时达成</li>
+                            <li>积累了从PI视角理解临床试验全流程的独特经验，增强与研究者的沟通共情能力</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-block">
+                        <div class="exp-header">
+                            <span class="exp-company">深圳康哲药业集团</span>
+                            <span class="exp-date">2024.09 — 2025.09</span>
+                        </div>
+                        <div class="exp-role">资深高级医学经理（Senior Medical Manager）</div>
+                        <ul class="exp-desc">
+                            <li>负责多个上市前/上市后产品的全流程医学事务管理，涵盖风湿免疫、消化、心血管、儿科等治疗领域</li>
+                            <li>主导美泰彤（风湿免疫用药）万例真实世界研究项目设计与执行，建立大规模RWE数据体系</li>
+                            <li>推动舒尔福（美沙拉秦）治疗溃疡性结肠炎上市后研究，积累消化免疫领域循证证据</li>
+                            <li>管理维福瑞（儿童降血脂用药）万例真实世界研究，拓展产品在儿科领域的医学证据链</li>
+                            <li>协调新活素（心衰用药）IIT研究者发起的研究项目，支持KOL学术合作与数据产出</li>
+                            <li>推进亿活（布拉氏酵母菌胶囊）IIT研究项目管理，优化研究设计与数据收集流程</li>
+                            <li>参与MG-K10 III期关键临床试验的医学支持工作，涉及临床方案审核与中心启动</li>
+                            <li>跨部门协作（市场、注册、药政），支持产品上市策略与医保准入</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-block">
+                        <div class="exp-header">
+                            <span class="exp-company">吉林大学第一医院（三甲）</span>
+                            <span class="exp-date">2019.09 — 2022.08</span>
+                        </div>
+                        <div class="exp-role">普通外科 · 主治医师</div>
+                        <ul class="exp-desc">
+                            <li>独立主刀及参与各类普通外科手术，累计完成大量择期与急诊手术操作</li>
+                            <li>负责病房患者管理、多学科会诊（MDT）、教学查房及住院医师带教培训</li>
+                            <li>参与科室临床研究项目，积累丰富的临床数据分析与论文撰写经验</li>
+                            <li>通过住院医师规范化培训并取得普通外科中级资格，建立扎实的外科临床基本功</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- EDUCATION -->
+                <div class="section">
+                    <div class="section-title">教育背景</div>
+                    <div class="edu-block">
+                        <div class="edu-header">
+                            <span class="edu-school">吉林大学</span>
+                            <span class="edu-date">2022.09 — 2025.06</span>
+                        </div>
+                        <div class="edu-detail">博士 · 外科学专业 · 肿瘤免疫治疗方向</div>
+                    </div>
+                    <div class="edu-block">
+                        <div class="edu-header">
+                            <span class="edu-school">吉林大学</span>
+                            <span class="edu-date">2016.09 — 2019.06</span>
+                        </div>
+                        <div class="edu-detail">硕士（专业型）· 外科学专业 · 神经外科方向</div>
+                    </div>
+                    <div class="edu-block">
+                        <div class="edu-header">
+                            <span class="edu-school">吉林大学</span>
+                            <span class="edu-date">2011.09 — 2016.06</span>
+                        </div>
+                        <div class="edu-detail">学士 · 临床医学专业（五年制）</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer">
+            CONFIDENTIAL · 本简历仅供招聘用途 · Page 1/2
+        </div>
+
+    </div>
+
+    <!-- ===== PAGE 2 ===== -->
+    <div class="page2">
+        <div class="page2-header">
+            <div class="page2-name">吕 品 鑫</div>
+            <div class="page2-label">Medical Director · 续页</div>
+        </div>
+
+        <div class="page2-body">
+
+            <!-- CLINICAL PROJECTS -->
+            <div class="section">
+                <div class="section-title">临床研究 / 试验项目经验</div>
+                <table class="project-table">
+                    <thead>
+                        <tr>
+                            <th style="width:22%;">产品/项目</th>
+                            <th style="width:16%;">阶段</th>
+                            <th style="width:20%;">治疗领域</th>
+                            <th style="width:42%;">职责说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>MG-K10</strong></td>
+                            <td><span class="proj-tag tag-pre">上市前</span><br>III期临床试验</td>
+                            <td>待确认适应症</td>
+                            <td>参与关键性III期注册临床试验，负责医学监查、方案审核、研究中心启动支持及数据质量管理</td>
+                        </tr>
+                        <tr>
+                            <td><strong>胶质母细胞瘤免疫植入材料</strong></td>
+                            <td><span class="proj-tag tag-pre">上市前</span><br>基础研究</td>
+                            <td>神经肿瘤 · 免疫治疗</td>
+                            <td>参与胶质母细胞瘤免疫植入材料基础研究，探索局部免疫调控在CNS肿瘤治疗中的创新应用</td>
+                        </tr>
+                        <tr>
+                            <td><strong>美泰彤</strong></td>
+                            <td><span class="proj-tag tag-post">上市后</span><br>万例真实世界研究</td>
+                            <td>风湿免疫</td>
+                            <td>主导大规模真实世界研究（RWE）项目设计、多中心启动与执行，建立产品上市后安全性与有效性证据体系</td>
+                        </tr>
+                        <tr>
+                            <td><strong>舒尔福（美沙拉秦）</strong></td>
+                            <td><span class="proj-tag tag-post">上市后</span><br>上市后研究</td>
+                            <td>消化免疫 · 溃疡性结肠炎</td>
+                            <td>推动溃疡性结肠炎适应症上市后研究，积累消化免疫领域循证医学证据</td>
+                        </tr>
+                        <tr>
+                            <td><strong>维福瑞</strong></td>
+                            <td><span class="proj-tag tag-post">上市后</span><br>万例真实世界研究</td>
+                            <td>儿科 · 降血脂</td>
+                            <td>管理大规模儿童用药真实世界研究项目，负责方案优化、数据监控及安全性信号分析</td>
+                        </tr>
+                        <tr>
+                            <td><strong>新活素</strong></td>
+                            <td><span class="proj-tag tag-post">上市后</span><br>IIT研究</td>
+                            <td>心血管 · 心力衰竭</td>
+                            <td>协调研究者发起的临床研究（IIT），支持KOL合作、方案设计及数据分析产出</td>
+                        </tr>
+                        <tr>
+                            <td><strong>亿活（布拉氏酵母菌胶囊）</strong></td>
+                            <td><span class="proj-tag tag-post">上市后</span><br>IIT研究</td>
+                            <td>消化科 · 微生态</td>
+                            <td>管理IIT研究项目全流程，优化研究设计与数据收集流程，推动学术成果转化</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- KEY COMPETENCIES for Medical Director -->
+            <div class="section">
+                <div class="section-title">核心胜任力</div>
+                <div class="highlight-grid">
+                    <div class="highlight-card">
+                        <div class="highlight-number" style="font-size:16px;">临床 + 产业</div>
+                        <div class="highlight-label">三甲医院主治医师出身，深谙临床需求；资深医学经理经验，精通医药产业医学事务全流程</div>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-number" style="font-size:16px;">上市前 + 上市后</div>
+                        <div class="highlight-label">兼具III期注册临床试验与上市后RWE/IIT研究经验，覆盖药物全生命周期医学支持</div>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-number" style="font-size:16px;">多领域覆盖</div>
+                        <div class="highlight-label">治疗领域跨越自身免疫、肿瘤免疫、消化、心血管、神经外科，视野广阔</div>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-number" style="font-size:16px;">科研 + 转化</div>
+                        <div class="highlight-label">博士后在研，肿瘤免疫治疗方向，持续追踪学术前沿并推动成果临床转化</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SELF ASSESSMENT -->
+            <div class="section">
+                <div class="section-title">自我评价</div>
+                <div class="profile-text">
+                    作为一名兼具临床医学与医药工业双重背景的医学专业人才，我始终以"推动创新疗法惠及更多患者"为职业使命。在三甲医院的外科临床工作中，我锤炼了严谨的医学思维与高效的多学科协作能力；在康哲药业担任资深高级医学经理期间，我系统性地建立了从临床试验设计到真实世界研究管理的全流程能力，尤其在大规模万例研究项目管理与IIT协调方面积累了丰富经验。博士期间深耕肿瘤免疫治疗方向，使我能够从科学本质出发理解疾病机制和药物作用靶点。目前，我以博士后研究员和临床试验主治医生的双重身份持续深耕一线，保持着与临床实践和学术前沿的紧密连接。我坚信，这种"从病房到boardroom"的复合型经验将为Medical Director岗位带来独特价值。
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            CONFIDENTIAL · 本简历仅供招聘用途 · Page 2/2
+        </div>
+    </div>
+
+</body>
+</html>
