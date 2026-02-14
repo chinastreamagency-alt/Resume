@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>吕品鑫 - 学术简历</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans CJK SC', 'WenQuanYi Zen Hei', 'Liberation Sans', sans-serif;
+            color: #2c2c2c;
+            background: #e8e8e8;
+            line-height: 1.5;
+            font-size: 11px;
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            margin: 0 auto;
+            background: #ffffff;
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+        }
+
+        .page:last-child {
+            page-break-after: auto;
+        }
+
+        @media print {
+            body { background: white; margin: 0; }
+            .page {
+                margin: 0;
+                width: 100%;
+            }
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: linear-gradient(135deg, #1a2744 0%, #2a3f6a 60%, #344e7a 100%);
+            color: #ffffff;
+            padding: 30px 46px 24px;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #b8926a, #d4b896, #b8926a);
+        }
+
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .header-table td {
+            vertical-align: top;
+            padding: 0;
+        }
+
+        .name-cn {
+            font-family: 'Noto Serif CJK SC', 'Noto Sans CJK SC', serif;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 10px;
+            margin-bottom: 2px;
+        }
+
+        .name-en {
+            font-family: 'Liberation Serif', 'DejaVu Serif', serif;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            color: #d4b896;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .title-line {
+            font-size: 14px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.88);
+            border-left: 3px solid #b8926a;
+            padding-left: 12px;
+        }
+
+        .contact-td {
+            text-align: right;
+            font-size: 12px;
+            line-height: 2;
+            color: rgba(255,255,255,0.82);
+            white-space: nowrap;
+            padding-top: 4px;
+        }
+
+        .contact-icon {
+            color: #d4b896;
+            font-size: 11px;
+            margin-left: 8px;
+        }
+
+        /* ===== BODY TABLE LAYOUT ===== */
+        .body-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .body-table td {
+            vertical-align: top;
+            padding: 0;
+        }
+
+        .sidebar-td {
+            width: 210px;
+            background: #faf9f7;
+            border-right: 1px solid #e8e4df;
+            padding: 18px 18px;
+        }
+
+        .main-td {
+            padding: 18px 28px;
+        }
+
+        /* ===== SECTION TITLES ===== */
+        .section-title {
+            font-family: 'Noto Serif CJK SC', 'Noto Sans CJK SC', serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: #1a2744;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #b8926a;
+        }
+
+        .section-title-sm {
+            font-family: 'Noto Serif CJK SC', 'Noto Sans CJK SC', serif;
+            font-size: 11.5px;
+            font-weight: 600;
+            color: #1a2744;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+            padding-bottom: 4px;
+            border-bottom: 1.5px solid #b8926a;
+        }
+
+        .section {
+            margin-bottom: 10px;
+        }
+
+        /* ===== SIDEBAR CONTENT ===== */
+        .skill-tag {
+            display: inline;
+            background: #ffffff;
+            border: 1px solid #e8e4df;
+            color: #444444;
+            font-size: 10px;
+            padding: 1px 6px;
+            margin: 1px 1px 1px 0;
+            border-radius: 2px;
+            line-height: 2;
+        }
+
+        .skill-category-title {
+            font-size: 10px;
+            font-weight: 600;
+            color: #1a2744;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 3px;
+        }
+
+        .lang-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11px;
+            color: #444444;
+        }
+
+        .lang-table td {
+            padding: 2px 0;
+        }
+
+        .lang-level {
+            text-align: right;
+            font-size: 10px;
+            color: #b8926a;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .cert-item {
+            font-size: 10.5px;
+            color: #444444;
+            margin-bottom: 3px;
+            padding-left: 12px;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .cert-item::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: #b8926a;
+            font-size: 6px;
+            top: 2px;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11px;
+            color: #444444;
+        }
+
+        .info-table td {
+            padding: 1px 0;
+        }
+
+        .info-label {
+            color: #888888;
+            width: 40px;
+            padding-right: 6px;
+        }
+
+        .highlight-card {
+            background: rgba(184,146,106,0.08);
+            border-left: 3px solid #b8926a;
+            padding: 6px 10px;
+            margin-bottom: 5px;
+        }
+
+        .highlight-number {
+            font-family: 'Liberation Serif', 'DejaVu Serif', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a2744;
+            line-height: 1;
+        }
+
+        .highlight-label {
+            font-size: 10px;
+            color: #888888;
+            letter-spacing: 0.5px;
+            margin-top: 1px;
+        }
+
+        /* ===== EXPERIENCE BLOCKS ===== */
+        .exp-block {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 14px;
+        }
+
+        .exp-block::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 6px;
+            bottom: -8px;
+            width: 1.5px;
+            background: #b8926a;
+        }
+
+        .exp-block:last-child::before {
+            bottom: 0;
+        }
+
+        .exp-block::after {
+            content: '';
+            position: absolute;
+            left: -3px;
+            top: 5px;
+            width: 8px;
+            height: 8px;
+            background: #b8926a;
+            border-radius: 50%;
+            border: 2px solid #ffffff;
+        }
+
+        .exp-header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1px;
+        }
+
+        .exp-header-table td {
+            padding: 0;
+        }
+
+        .exp-company {
+            font-size: 12.5px;
+            font-weight: 700;
+            color: #1a2744;
+        }
+
+        .exp-date {
+            text-align: right;
+            font-size: 10.5px;
+            color: #b8926a;
+            font-weight: 600;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .exp-role {
+            font-size: 11px;
+            font-weight: 600;
+            color: #444444;
+            margin-bottom: 2px;
+            letter-spacing: 0.5px;
+        }
+
+        .exp-desc {
+            font-size: 10.5px;
+            color: #444444;
+            line-height: 1.5;
+        }
+
+        .exp-desc li {
+            margin-bottom: 1px;
+            list-style: none;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .exp-desc li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: #b8926a;
+            font-weight: 600;
+        }
+
+        /* ===== EDUCATION ===== */
+        .edu-block {
+            margin-bottom: 6px;
+            padding-left: 14px;
+            position: relative;
+        }
+
+        .edu-block::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 7px;
+            height: 7px;
+            background: #ffffff;
+            border: 2px solid #b8926a;
+            border-radius: 50%;
+        }
+
+        .edu-header-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .edu-header-table td {
+            padding: 0;
+        }
+
+        .edu-school {
+            font-size: 12px;
+            font-weight: 700;
+            color: #1a2744;
+        }
+
+        .edu-date {
+            text-align: right;
+            font-size: 10px;
+            color: #b8926a;
+            font-weight: 600;
+        }
+
+        .edu-detail {
+            font-size: 11px;
+            color: #444444;
+        }
+
+        .edu-note {
+            font-size: 10px;
+            color: #888888;
+            font-style: italic;
+        }
+
+        /* ===== PROFILE SUMMARY ===== */
+        .profile-text {
+            font-size: 10.5px;
+            color: #444444;
+            line-height: 1.65;
+            text-align: justify;
+            border-left: 3px solid #b8926a;
+            padding-left: 12px;
+            background: rgba(184,146,106,0.08);
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+
+        /* ===== PUBLICATIONS ===== */
+        .pub-item {
+            font-size: 10.5px;
+            color: #444444;
+            line-height: 1.6;
+            margin-bottom: 8px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .pub-index {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-family: 'Liberation Serif', 'DejaVu Serif', serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: #1a2744;
+            width: 20px;
+            text-align: center;
+        }
+
+        .pub-title {
+            font-weight: 600;
+            color: #1a2744;
+        }
+
+        .pub-journal {
+            font-style: italic;
+            color: #b8926a;
+            font-weight: 600;
+        }
+
+        .pub-badge {
+            display: inline-block;
+            font-size: 9px;
+            padding: 1px 6px;
+            border-radius: 2px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-left: 4px;
+        }
+
+        .badge-first {
+            background: #e8eaf0;
+            color: #1a2744;
+            border: 1px solid #1a2744;
+        }
+
+        .badge-if {
+            background: rgba(184,146,106,0.15);
+            color: #8a6d42;
+            border: 1px solid #b8926a;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding: 6px;
+            font-size: 9px;
+            color: #888888;
+            letter-spacing: 2px;
+            border-top: 1px solid #e8e4df;
+        }
+
+        /* ===== PAGE 2 HEADER ===== */
+        .page2-header {
+            background: #1a2744;
+            color: #ffffff;
+            padding: 16px 46px;
+            position: relative;
+        }
+
+        .page2-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #b8926a, #d4b896, #b8926a);
+        }
+
+        .page2-header-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .page2-header-table td {
+            padding: 0;
+            vertical-align: middle;
+        }
+
+        .page2-name {
+            font-family: 'Noto Serif CJK SC', 'Noto Sans CJK SC', serif;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 6px;
+        }
+
+        .page2-label {
+            text-align: right;
+            font-size: 11px;
+            color: #d4b896;
+            letter-spacing: 2px;
+        }
+
+        .page2-body {
+            padding: 28px 46px;
+        }
+
+        /* ===== RESEARCH PROJECTS TABLE ===== */
+        .project-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 10.5px;
+            margin-top: 4px;
+        }
+
+        .project-table th {
+            background: #1a2744;
+            color: #ffffff;
+            font-weight: 600;
+            padding: 5px 8px;
+            text-align: left;
+            font-size: 10px;
+            letter-spacing: 1px;
+        }
+
+        .project-table td {
+            padding: 5px 8px;
+            border-bottom: 1px solid #e8e4df;
+            color: #444444;
+            vertical-align: top;
+            line-height: 1.4;
+        }
+
+        .project-table tr:nth-child(even) {
+            background: rgba(184,146,106,0.08);
+        }
+
+        .proj-tag {
+            display: inline-block;
+            font-size: 9px;
+            padding: 1px 5px;
+            border-radius: 2px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .tag-ongoing {
+            background: #e8f0e8;
+            color: #3a6b3a;
+        }
+
+        .tag-completed {
+            background: #e8eaf0;
+            color: #3a4a6b;
+        }
+
+        /* ===== KEY HIGHLIGHTS GRID ===== */
+        .highlight-grid-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 8px 0;
+            margin-top: 4px;
+        }
+
+        .highlight-grid-table td {
+            width: 50%;
+            vertical-align: top;
+            padding: 0;
+        }
+
+        .highlight-card-main {
+            background: rgba(184,146,106,0.08);
+            border-left: 3px solid #b8926a;
+            padding: 8px 12px;
+            margin-bottom: 8px;
+        }
+
+        .highlight-card-main .highlight-number {
+            font-size: 14px;
+        }
+
+        /* ===== TEACHING ===== */
+        .teach-item {
+            font-size: 10.5px;
+            color: #444444;
+            margin-bottom: 3px;
+            padding-left: 12px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .teach-item::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #b8926a;
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== PAGE 1 ===== -->
+    <div class="page">
+
+        <!-- HEADER -->
+        <div class="header">
+            <table class="header-table">
+                <tr>
+                    <td>
+                        <div class="name-cn">吕 品 鑫</div>
+                        <div class="name-en">Lü Pinxin, M.D. / Ph.D.</div>
+                        <div class="title-line">外科学博士 · 博士后研究员 · 肿瘤免疫治疗</div>
+                    </td>
+                    <td class="contact-td">
+                        <div>+86 180-0441-8850 <span class="contact-icon">✆</span></div>
+                        <div>1024628536@qq.com <span class="contact-icon">✉</span></div>
+                        <div>长春 · 可接受异地 <span class="contact-icon">◈</span></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- BODY -->
+        <table class="body-table">
+            <tr>
+                <!-- SIDEBAR -->
+                <td class="sidebar-td">
+
+                    <div class="section">
+                        <div class="section-title-sm">个人信息</div>
+                        <table class="info-table">
+                            <tr><td class="info-label">性别</td><td>男</td></tr>
+                            <tr><td class="info-label">出生</td><td>1992年</td></tr>
+                            <tr><td class="info-label">学历</td><td>博士（外科学）</td></tr>
+                            <tr><td class="info-label">现居</td><td>长春</td></tr>
+                        </table>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title-sm">学术亮点</div>
+                        <div class="highlight-card">
+                            <div class="highlight-number" style="font-size:15px;">SCI 一作</div>
+                            <div class="highlight-label">Acta Biomaterialia (IF≈10)</div>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-number" style="font-size:15px;">985 双一流</div>
+                            <div class="highlight-label">本·硕·博 吉林大学全程培养</div>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-number">M.D./Ph.D.</div>
+                            <div class="highlight-label">医学博士 · 主治医师</div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title-sm">研究方向</div>
+                        <span class="skill-tag">肿瘤免疫治疗</span>
+                        <span class="skill-tag">生物材料药物递送</span>
+                        <span class="skill-tag">胶质母细胞瘤</span>
+                        <span class="skill-tag">免疫检查点调控</span>
+                        <span class="skill-tag">肿瘤微环境重塑</span>
+                        <span class="skill-tag">神经肿瘤学</span>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title-sm">科研技能</div>
+                        <div class="skill-category-title">实验技术</div>
+                        <span class="skill-tag">动物模型构建</span>
+                        <span class="skill-tag">RNA转录组测序</span>
+                        <span class="skill-tag">免疫组化分析</span>
+                        <span class="skill-tag">生物材料制备</span>
+                        <span class="skill-tag">细胞培养</span>
+                        <span class="skill-tag">流式细胞术</span>
+                        <div style="margin-top:5px;">
+                            <div class="skill-category-title">学术能力</div>
+                            <span class="skill-tag">SCI论文撰写</span>
+                            <span class="skill-tag">临床试验设计</span>
+                            <span class="skill-tag">数据统计分析</span>
+                            <span class="skill-tag">文献综述</span>
+                            <span class="skill-tag">GCP/ICH</span>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title-sm">语言能力</div>
+                        <table class="lang-table">
+                            <tr><td>普通话</td><td class="lang-level">母语</td></tr>
+                            <tr><td>英语</td><td class="lang-level">CET-6 · 流利</td></tr>
+                        </table>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title-sm">资质证书</div>
+                        <div class="cert-item">普通外科中级资格证书</div>
+                        <div class="cert-item">GCP临床试验培训证</div>
+                        <div class="cert-item">执业医师证书</div>
+                        <div class="cert-item">医师资格证书</div>
+                        <div class="cert-item">英语六级证书（CET-6）</div>
+                        <div class="cert-item">外科住院医师规培合格证</div>
+                    </div>
+
+                </td>
+
+                <!-- MAIN CONTENT -->
+                <td class="main-td">
+
+                    <!-- ACADEMIC PROFILE -->
+                    <div class="section">
+                        <div class="section-title">学术概述</div>
+                        <div class="profile-text">
+                            医学博士（M.D./Ph.D.），吉林大学外科学博士（985/双一流），本硕博均就读于吉林大学。研究方向聚焦肿瘤免疫治疗与生物材料药物递送系统，博士期间以第一作者在 Acta Biomaterialia（IF≈10）发表研究论文，在胶质母细胞瘤围手术期免疫治疗领域取得创新性成果。具备10余年临床医学实践背景，兼具外科临床经验与多中心临床研究管理能力。现以博士后研究员身份持续深耕免疫检查点调控与肿瘤微环境重塑研究，致力于推动肿瘤免疫治疗从基础研究向临床转化。
+                        </div>
+                    </div>
+
+                    <!-- PUBLICATIONS -->
+                    <div class="section">
+                        <div class="section-title">代表性学术论文</div>
+                        <div class="pub-item">
+                            <div class="pub-index">[1]</div>
+                            <span class="pub-badge badge-first">第一作者</span>
+                            <span class="pub-badge badge-if">IF ≈ 10</span><br>
+                            <span class="pub-title">Biopolymer immune implants co-loaded with TMZ, R848 and IOX1 for perioperative therapy of glioblastoma.</span><br>
+                            <strong>Lv P</strong>, Wang Z, Si X, Su J, Yu Z, Yu H, Ji G, Song W*.<br>
+                            <span class="pub-journal">Acta Biomaterialia</span>, 2024, 189: 143-154.<br>
+                            DOI: 10.1016/j.actbio.2024.09.053 &nbsp;|&nbsp; PMID: 39368721
+                        </div>
+                        <div class="pub-item">
+                            <div class="pub-index">[2]</div>
+                            <span class="pub-badge badge-if">IF ≈ 4</span><br>
+                            <span class="pub-title">ELISA genotyping of hepatitis B virus in China with antibodies specific for genotypes B and C.</span><br>
+                            Li Y, Wang L, Cheng H, Chi X, Huang Q, <strong>Lv P</strong>, Zhang W, Niu J, Wen X, Liu Z*.<br>
+                            <span class="pub-journal">Scientific Reports</span>, 2024, 14(1): 23884.<br>
+                            DOI: 10.1038/s41598-024-76023-7 &nbsp;|&nbsp; PMID: 39396069
+                        </div>
+                    </div>
+
+                    <!-- EDUCATION -->
+                    <div class="section">
+                        <div class="section-title">教育背景</div>
+                        <div class="edu-block">
+                            <table class="edu-header-table"><tr>
+                                <td class="edu-school">吉林大学 <span class="edu-note">（985 / 双一流）</span></td>
+                                <td class="edu-date">2022.09 — 2025.06</td>
+                            </tr></table>
+                            <div class="edu-detail">博士 · 外科学专业 · 肿瘤免疫治疗方向</div>
+                            <div class="edu-note">博士课题：胶质母细胞瘤围手术期生物聚合物免疫植入材料研究</div>
+                        </div>
+                        <div class="edu-block">
+                            <table class="edu-header-table"><tr>
+                                <td class="edu-school">吉林大学 <span class="edu-note">（985 / 双一流）</span></td>
+                                <td class="edu-date">2016.09 — 2019.06</td>
+                            </tr></table>
+                            <div class="edu-detail">硕士（专业型）· 外科学专业 · 神经外科方向</div>
+                        </div>
+                        <div class="edu-block">
+                            <table class="edu-header-table"><tr>
+                                <td class="edu-school">吉林大学 <span class="edu-note">（985 / 双一流）</span></td>
+                                <td class="edu-date">2011.09 — 2016.06</td>
+                            </tr></table>
+                            <div class="edu-detail">学士 · 临床医学专业（五年制）</div>
+                        </div>
+                    </div>
+
+                    <!-- WORK EXPERIENCE -->
+                    <div class="section">
+                        <div class="section-title">科研与工作经历</div>
+
+                        <div class="exp-block">
+                            <table class="exp-header-table"><tr>
+                                <td class="exp-company">吉林大学</td>
+                                <td class="exp-date">2025.09 — 至今</td>
+                            </tr></table>
+                            <div class="exp-role">博士后研究员（兼职型）</div>
+                            <ul class="exp-desc">
+                                <li>开展肿瘤免疫治疗方向博士后研究，聚焦免疫检查点调控与肿瘤微环境重塑</li>
+                                <li>深入探索生物材料介导的局部免疫激活策略，推进基础科研向临床转化</li>
+                                <li>与中科院长春应化所等多学科团队协作推进交叉学科研究</li>
+                            </ul>
+                        </div>
+
+                        <div class="exp-block">
+                            <table class="exp-header-table"><tr>
+                                <td class="exp-company">吉林大学第一医院（三甲）</td>
+                                <td class="exp-date">2025.09 — 至今</td>
+                            </tr></table>
+                            <div class="exp-role">临床试验主治医生</div>
+                            <ul class="exp-desc">
+                                <li>负责多项新药临床试验的临床执行与受试者管理，积累丰富的GCP规范实践经验</li>
+                                <li>从PI视角参与临床方案审核、伦理沟通、安全性评估及不良事件上报</li>
+                            </ul>
+                        </div>
+
+                        <div class="exp-block">
+                            <table class="exp-header-table"><tr>
+                                <td class="exp-company">吉林大学第一医院（三甲）</td>
+                                <td class="exp-date">2019.09 — 2022.08</td>
+                            </tr></table>
+                            <div class="exp-role">普通外科 · 主治医师</div>
+                            <ul class="exp-desc">
+                                <li>独立主刀及参与各类普通外科手术，承担病房管理、多学科会诊（MDT）</li>
+                                <li>负责住院医师带教培训及教学查房，参与科室临床研究及论文撰写</li>
+                            </ul>
+                        </div>
+
+                        <div class="exp-block">
+                            <table class="exp-header-table"><tr>
+                                <td class="exp-company">深圳康哲药业集团</td>
+                                <td class="exp-date">2024.09 — 2025.09</td>
+                            </tr></table>
+                            <div class="exp-role">资深高级医学经理</div>
+                            <ul class="exp-desc">
+                                <li>主导多项多中心临床研究项目设计与管理，积累大规模临床数据分析经验</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </td>
+            </tr>
+        </table>
+
+        <div class="footer">
+            CONFIDENTIAL · 本简历仅供招聘用途 · Page 1/2
+        </div>
+
+    </div>
+
+    <!-- ===== PAGE 2 ===== -->
+    <div class="page">
+        <div class="page2-header">
+            <table class="page2-header-table">
+                <tr>
+                    <td class="page2-name">吕 品 鑫</td>
+                    <td class="page2-label">学术简历 · 续页</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="page2-body">
+
+            <!-- RESEARCH PROJECTS -->
+            <div class="section">
+                <div class="section-title">科研项目经历</div>
+                <table class="project-table">
+                    <thead>
+                        <tr>
+                            <th style="width:26%;">项目名称</th>
+                            <th style="width:14%;">阶段</th>
+                            <th style="width:18%;">研究方向</th>
+                            <th style="width:42%;">研究内容与成果</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>博士后课题：免疫检查点调控与肿瘤微环境重塑</strong></td>
+                            <td><span class="proj-tag tag-ongoing">在研</span><br>博士后</td>
+                            <td>肿瘤免疫治疗</td>
+                            <td>聚焦自身免疫与肿瘤免疫交叉领域，探索新型免疫调控策略在实体瘤治疗中的应用，推动免疫治疗临床转化</td>
+                        </tr>
+                        <tr>
+                            <td><strong>胶质母细胞瘤围手术期生物聚合物免疫植入材料</strong></td>
+                            <td><span class="proj-tag tag-completed">已结题</span><br>博士课题</td>
+                            <td>神经肿瘤 · 生物材料 · 免疫治疗</td>
+                            <td>设计基于动态可逆共价键的生物聚合物免疫植入材料，实现TMZ、R848和IOX1三药协同缓释递送；大鼠原位脑胶质瘤模型验证：<strong>肿瘤缩小90%，治愈率&gt;70%</strong>；RNA全转录组测序揭示协同抗肿瘤免疫激活机制；成果以一作发表于 <em>Acta Biomaterialia</em>（IF≈10）</td>
+                        </tr>
+                        <tr>
+                            <td><strong>乙型肝炎病毒基因分型ELISA方法学研究</strong></td>
+                            <td><span class="proj-tag tag-completed">已完成</span><br>合作项目</td>
+                            <td>感染病学 · 免疫学</td>
+                            <td>参与开发基于基因型特异性抗体的ELISA快速分型方法，在中国HBV患者中验证灵敏度与特异性均&gt;95%，成功率达98.7%；成果发表于 <em>Scientific Reports</em>（IF≈4）</td>
+                        </tr>
+                        <tr>
+                            <td><strong>硕士课题：神经外科方向临床研究</strong></td>
+                            <td><span class="proj-tag tag-completed">已结题</span><br>硕士课题</td>
+                            <td>神经外科</td>
+                            <td>吉林大学中日联谊医院神经外科完成专业型硕士培养，系统掌握神经外科临床与科研技能</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- TEACHING -->
+            <div class="section">
+                <div class="section-title">教学经历</div>
+                <div class="teach-item">吉林大学第一医院普通外科住院医师带教培训（2019—2022）</div>
+                <div class="teach-item">临床教学查房组织与实施，指导低年资住院医师临床操作与病例分析</div>
+                <div class="teach-item">参与外科实习生临床轮转带教工作</div>
+            </div>
+
+            <!-- KEY COMPETENCIES -->
+            <div class="section">
+                <div class="section-title">核心学术胜任力</div>
+                <table class="highlight-grid-table">
+                    <tr>
+                        <td>
+                            <div class="highlight-card-main">
+                                <div class="highlight-number">科研创新</div>
+                                <div class="highlight-label">博士期间独立完成从材料设计、动物实验到机制解析的全流程研究，一作发表于国际顶级生物材料期刊</div>
+                            </div>
+                            <div class="highlight-card-main">
+                                <div class="highlight-number">临床转化</div>
+                                <div class="highlight-label">M.D./Ph.D.双重背景，10余年临床实践经验，具备从临床需求出发驱动科研选题的能力</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="highlight-card-main">
+                                <div class="highlight-number">交叉学科</div>
+                                <div class="highlight-label">研究横跨生物材料、肿瘤免疫、神经外科，与中科院等多机构开展深度合作</div>
+                            </div>
+                            <div class="highlight-card-main">
+                                <div class="highlight-number">临床研究</div>
+                                <div class="highlight-label">兼具PI视角与多中心研究管理经验，熟悉从方案设计到数据分析的临床研究全流程</div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- SELF ASSESSMENT -->
+            <div class="section">
+                <div class="section-title">自我评价</div>
+                <div class="profile-text">
+                    作为一名兼具扎实临床功底与前沿科研能力的医学博士，我始终致力于推动肿瘤免疫治疗领域的基础研究与临床转化。博士期间独立完成胶质母细胞瘤免疫植入材料的系统性研究，从材料设计到动物模型验证再到分子机制解析，以第一作者在国际顶级生物材料期刊 Acta Biomaterialia（IF≈10）发表研究成果。本硕博均就读于吉林大学（985/双一流），接受了完整而系统的医学科研训练。10余年三甲医院临床实践赋予我从临床需求出发提炼科学问题的独特视角，丰富的多中心临床研究管理经验则强化了我的项目组织协调能力。现以博士后研究员身份持续深耕免疫检查点调控领域，期待在高校平台上进一步拓展科研版图，将临床洞察转化为有影响力的学术成果。
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            CONFIDENTIAL · 本简历仅供招聘用途 · Page 2/2
+        </div>
+    </div>
+
+</body>
+</html>
